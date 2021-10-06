@@ -19,7 +19,7 @@ module ResoTransport
     end
 
     def encode_value(value)
-      "'#{mapping.invert.fetch(value, value)}'"
+      "'#{value}'"
     end
 
     def mapping
@@ -28,10 +28,9 @@ module ResoTransport
 
     def generate_member_map
       members.map {|mem|
-        { mem.name => mem.annotation || mem.name }  
+        { mem.name => mem.annotation || mem.name }
       }.reduce(:merge!)
     end
-
   end
 end
 
